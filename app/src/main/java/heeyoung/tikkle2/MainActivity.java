@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
+public static final int REQUEST_CODE_MENU = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +36,20 @@ public class MainActivity extends AppCompatActivity {
                     );
                 } // end if
             } // end onClick()
+
+            public void buttonsignupclicked(View v) {
+                Intent intent = new Intent(getApplicationContext(), signupactivity.class);
+                startActivityForResult(intent, REQUEST_CODE_MENU);
+            }
         });
+
+
+    }
 
 
 
 
     }
-}
 
 //Image1.setBackgroundDrawable(
 //        getResources().
