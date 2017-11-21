@@ -4,27 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context="heeyoung.tikkle2.MainActivity">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/acorns3" />
 
     <ToggleButton
         android:id="@+id/usertoggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="74dp"
+        android:layout_marginLeft="78dp"
         android:layout_marginStart="78dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="16dp"
         android:checked="false"
         android:text="supporter"
         android:textOff="후원자"
@@ -32,43 +21,84 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="149dp"
+        android:layout_height="144dp"
+        app:srcCompat="@drawable/supporterselected"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.143"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="239dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
     <LinearLayout
         android:layout_width="184dp"
         android:layout_height="104dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="358dp"
         android:layout_marginLeft="88dp"
+        android:layout_marginRight="88dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="383dp"
+        android:orientation="vertical"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="88dp">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="88dp">
 
         <Button
             android:id="@+id/button12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF8B7E"
-            android:text="log in" />
+            android:backgroundTint="#FFFFFF"
+            android:text="log in"
+            android:textColor="#000000"/>
 
         <Button
             android:id="@+id/button13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF8B7E"
+            android:backgroundTint="#FFFFFF"
             android:onClick="buttonsignupclicked"
-            android:text="sign up" />
+            android:text="sign up"
+            android:textColor="#000000"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="38dp" />
+
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="114dp"
-        android:layout_height="97dp"
-        app:srcCompat="@drawable/acorn"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        android:layout_marginTop="33dp"
+        android:id="@+id/imageView2"
+        android:layout_width="133dp"
+        android:layout_height="165dp"
+        app:srcCompat="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="79dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="153dp"
+        android:layout_height="131dp"
+        app:srcCompat="@drawable/beneficiaryoff"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="239dp"
+        app:layout_constraintHorizontal_bias="0.926"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

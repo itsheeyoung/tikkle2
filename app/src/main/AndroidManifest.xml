@@ -19,7 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signupactivity"></activity>
+        <activity android:name=".signupactivity" />
+        <activity android:name=".loginactivity" />
+        <activity android:name=".bene_signup_activity" />
+        <activity android:name=".setting_activity" />
+        <activity android:name=".supporter_home_activity"></activity>
     </application>
 
 </manifest>
