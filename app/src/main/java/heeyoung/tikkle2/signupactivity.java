@@ -11,12 +11,22 @@ public class signupactivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signupactivity);
+        setContentView(R.layout.activity_signupactivity);}
 
+        public static final int REQUEST_CODE_SETTING = 104;
 
+    public void buttonsignupclicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), setting_activity.class);
+        startActivityForResult(intent, REQUEST_CODE_SETTING);
     }
 
-    public class MenuActivity extends AppCompatActivity {
+
+}
+
+
+
+/*
+  public class MenuActivity extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +44,4 @@ public class signupactivity extends AppCompatActivity {
             });
         }
     }
-
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-}
-
+*/

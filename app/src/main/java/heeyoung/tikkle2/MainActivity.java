@@ -11,7 +11,7 @@ import android.widget.ToggleButton;
 public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE_SIGNIN = 101;
     public static final int REQUEST_CODE_LOGIN = 102;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,33 +25,36 @@ public class MainActivity extends AppCompatActivity {
         tb2.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                if(tb2.isChecked()){
-                            Image1.setImageDrawable(
-                                    getResources().
-                                            getDrawable(R.drawable.acorn)
+                if (tb2.isChecked()) {
+                    Image1.setImageDrawable(
+                            getResources().
+                                    getDrawable(R.drawable.acorn)
                     );
-                }else{
-                            Image1.setImageDrawable(
-                                    getResources().
-                                            getDrawable(R.drawable.squirrel)
+                } else {
+                    Image1.setImageDrawable(
+                            getResources().
+                                    getDrawable(R.drawable.squirrel)
                     );
                 } // end if
             } // end onClick()
         });
     }
+
     public void buttonsignupclicked(View v) {
         Intent intent = new Intent(getApplicationContext(), signupactivity.class);
         startActivityForResult(intent, REQUEST_CODE_SIGNIN);
     }
 
-    public void buttonloginclicked(View v){
+    public void buttonloginclicked(View v) {
         Intent intent = new Intent(getApplicationContext(), loginactivity.class);
         startActivityForResult(intent, REQUEST_CODE_LOGIN);
     }
 
-
-
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
+
+}
 
 //Image1.setBackgroundDrawable(
 //        getResources().

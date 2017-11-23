@@ -10,4 +10,5 @@ public class supporter_home_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supporter_home_activity);
     }
+
 }

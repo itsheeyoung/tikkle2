@@ -26,15 +26,16 @@
         android:id="@+id/button14"
         android:layout_width="162dp"
         android:layout_height="46dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:backgroundTint="#FFFFFF"
+        android:onClick="buttonsignupclicked"
         android:text="NEXT"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="64dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
     <LinearLayout
