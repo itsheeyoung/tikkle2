@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
-public static final int REQUEST_CODE_MENU = 101;
-
+    public static final int REQUEST_CODE_SIGNIN = 101;
+    public static final int REQUEST_CODE_LOGIN = 102;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,16 +37,17 @@ public static final int REQUEST_CODE_MENU = 101;
                     );
                 } // end if
             } // end onClick()
-
-            public void buttonsignupclicked(View v) {
-                Intent intent = new Intent(getApplicationContext(), signupactivity.class);
-                startActivityForResult(intent, REQUEST_CODE_MENU);
-            }
         });
-
-
+    }
+    public void buttonsignupclicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), signupactivity.class);
+        startActivityForResult(intent, REQUEST_CODE_SIGNIN);
     }
 
+    public void buttonloginclicked(View v){
+        Intent intent = new Intent(getApplicationContext(), loginactivity.class);
+        startActivityForResult(intent, REQUEST_CODE_LOGIN);
+    }
 
 
 

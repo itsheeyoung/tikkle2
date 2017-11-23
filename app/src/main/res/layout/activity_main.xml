@@ -11,9 +11,9 @@
         android:id="@+id/usertoggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="78dp"
+        android:layout_marginLeft="260dp"
         android:layout_marginStart="78dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="-18dp"
         android:checked="false"
         android:text="supporter"
         android:textOff="후원자"
@@ -55,8 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
+            android:onClick="buttonloginclicked"
             android:text="log in"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
 
         <Button
             android:id="@+id/button13"
