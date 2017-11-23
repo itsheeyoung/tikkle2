@@ -9,8 +9,16 @@ import android.widget.Button;
 public class loginactivity extends AppCompatActivity {
 
 
+    public static final int REQUEST_CODE_HOME= 103;
 
-        @Override
+
+    public void buttonsignupclicked2(View v) {
+    Intent intent = new Intent(getApplicationContext(), setting_activity.class);
+    startActivityForResult(intent, REQUEST_CODE_HOME);
+}
+
+
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_loginactivity);
@@ -27,7 +35,6 @@ public class loginactivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent();
-                    intent.putExtra("name", "mike");
                     setResult(RESULT_OK, intent);
 
                     finish();

@@ -27,7 +27,6 @@ public class signupactivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Intent intent = new Intent();
-                    intent.putExtra("name", "mike");
                     setResult(RESULT_OK, intent);
 
                     finish();
