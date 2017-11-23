@@ -60,64 +60,64 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="기관명" />
+                android:hint="기관명"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editText8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone"
-                android:text="전화번호" />
+                android:hint="전화번호"
+                android:inputType="phone" />
 
             <EditText
                 android:id="@+id/editText9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:text="비밀번호" />
+                android:hint="비밀번호"
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/editText10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword"
-                android:text="비밀번호 확인" />
+                android:hint="비밀번호 확인"
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/editText11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number"
-                android:text=" 기관 등록번호 및 인증번호" />
+                android:hint=" 기관 등록번호 및 인증번호"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/editText13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPostalAddress"
-                android:text="주소" />
+                android:hint="주소"
+                android:inputType="textPostalAddress" />
 
             <EditText
                 android:id="@+id/editText12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:text="현황" />
+                android:hint="현황"
+                android:inputType="textMultiLine" />
 
             <EditText
                 android:id="@+id/editText14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textMultiLine"
-                android:text="기관 소개" />
+                android:hint="기관 소개"
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </ScrollView>
 

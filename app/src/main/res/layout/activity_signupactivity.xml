@@ -57,31 +57,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="이름" />
+            android:hint="이름"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="phone"
-            android:text="전화번호" />
+            android:hint="전화번호"
+            android:inputType="phone" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:text="비밀번호" />
+            android:hint="비밀번호"
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/editText4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:text="비밀번호 확인" />
+            android:hint="비밀번호 확인"
+            android:inputType="textPassword" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

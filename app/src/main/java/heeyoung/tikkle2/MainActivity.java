@@ -16,28 +16,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final ToggleButton tb2 =
-                (ToggleButton) this.findViewById(R.id.usertoggleButton);
-        final ImageView Image1 =
-                (ImageView) this.findViewById(R.id.imageView);
-
-        tb2.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                if (tb2.isChecked()) {
-                    Image1.setImageDrawable(
-                            getResources().
-                                    getDrawable(R.drawable.acorn)
-                    );
-                } else {
-                    Image1.setImageDrawable(
-                            getResources().
-                                    getDrawable(R.drawable.squirrel)
-                    );
-                } // end if
-            } // end onClick()
-        });
     }
 
     public void buttonsignupclicked(View v) {
@@ -60,3 +38,24 @@ public class MainActivity extends AppCompatActivity {
 //        getResources().
 //        getDrawable(R.drawable.acorn)
 
+//    final ToggleButton tb2 =
+//            (ToggleButton) this.findViewById(R.id.usertoggleButton);
+//    final ImageView Image1 =
+//            (ImageView) this.findViewById(R.id.imageView);
+//
+//        tb2.setOnClickListener(new View.OnClickListener() {
+//
+//public void onClick(View v) {
+//        if (tb2.isChecked()) {
+//        Image1.setImageDrawable(
+//        getResources().
+//        getDrawable(R.drawable.acorn)
+//        );
+//        } else {
+//        Image1.setImageDrawable(
+//        getResources().
+//        getDrawable(R.drawable.squirrel)
+//        );
+//        } // end if
+//        } // end onClick()
+//        });
