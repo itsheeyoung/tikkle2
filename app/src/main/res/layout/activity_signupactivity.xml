@@ -53,7 +53,7 @@
         android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/signup_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -84,4 +84,12 @@
             android:hint="비밀번호 확인"
             android:inputType="textPassword" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name_field"
+        tools:layout_editor_absoluteX="783dp"
+        tools:layout_editor_absoluteY="-167dp" />
 </android.support.constraint.ConstraintLayout>

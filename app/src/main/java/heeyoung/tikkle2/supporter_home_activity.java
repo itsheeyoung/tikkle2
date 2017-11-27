@@ -11,4 +11,12 @@ public class supporter_home_activity extends AppCompatActivity {
         setContentView(R.layout.activity_supporter_home_activity);
     }
 
+
+
+
 }
+
+
+/* tabhost관련
+전자책 421
+*/
