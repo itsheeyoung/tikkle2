@@ -20,7 +20,7 @@ public class supporter_home_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supporter_home_activity);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Name");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Supporters");
         mUserNameView = (TextView) findViewById(R.id.user_name_view);
 
         mDatabase.addValueEventListener(new ValueEventListener() {

@@ -23,7 +23,11 @@
         <activity android:name=".loginactivity" />
         <activity android:name=".bene_signup_activity" />
         <activity android:name=".setting_activity" />
-        <activity android:name=".supporter_home_activity"></activity>
+        <activity android:name=".supporter_home_activity" />
+        <activity android:name=".bene_information_activity" />
+        <activity android:name=".bene_home_activity" />
+        <activity android:name=".bene_list_activity" />
+        <activity android:name=".bene_listpost_activity"></activity>
     </application>
 
 </manifest>
