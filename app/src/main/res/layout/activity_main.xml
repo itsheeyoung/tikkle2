@@ -30,17 +30,20 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/supporterselected"/>
+            android:background="@drawable/supporterselected"
+            android:onClick="button_supporter_clicked" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/beneficiaryoff" />
+            android:background="@drawable/beneficiaryoff"
+            android:onClick="button_bene_clicked" />
 
     </LinearLayout>
 
