@@ -1,5 +1,6 @@
 package heeyoung.tikkle2;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,6 +35,8 @@ public class board_writing_activity extends AppCompatActivity {
     private StorageReference mStorage;
     private DatabaseReference mDatabase;
 
+    private ProgressBar mProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,8 @@ public class board_writing_activity extends AppCompatActivity {
         mPostContent = (EditText) findViewById(R.id.board_content_field);
 
         mSubmitButton = (Button) findViewById(R.id.submit_button);
+
+        mProgress = new ProgressBar(this);
 
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
