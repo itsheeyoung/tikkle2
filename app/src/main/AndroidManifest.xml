@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="heeyoung.tikkle2">
 
+    <uses-permisson android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,6 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            //액션 바 없애기, 밖에서도 AppTheme바꿔주어야 함.
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +25,8 @@
         <activity android:name=".bene_signup_activity" />
         <activity android:name=".setting_activity" />
         <activity android:name=".supporter_home_activity" />
-        <activity android:name=".bene_information_activity" />
-        <activity android:name=".bene_home_activity" />
-        <activity android:name=".bene_list_activity" />
-        <activity android:name=".bene_listpost_activity"></activity>
+        <activity android:name=".board_writing_activity" />
+        <activity android:name=".board_reading_activity"></activity>
     </application>
 
 </manifest>

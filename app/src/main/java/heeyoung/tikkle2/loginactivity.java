@@ -18,7 +18,8 @@ public class loginactivity extends AppCompatActivity {
     public static final int REQUEST_CODE_HOME = 103;
 
     public void buttonsignupclicked(View v) {
-        Intent intent = new Intent(getApplicationContext(), supporter_home_activity.class);
+        //board_writing_activity가 원래 supporter_home_activity임
+        Intent intent = new Intent(getApplicationContext(), board_writing_activity.class);
         startActivityForResult(intent, REQUEST_CODE_HOME);
     }
 
