@@ -38,36 +38,5 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <LinearLayout
-        android:layout_width="274dp"
-        android:layout_height="199dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="202dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="AutoCompleteTextView" />
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteTextView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="AutoCompleteTextView" />
-        </LinearLayout>
-
-    </LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>

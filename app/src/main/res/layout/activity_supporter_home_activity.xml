@@ -8,8 +8,8 @@
     tools:context="heeyoung.tikkle2.supporter_home_activity">
 
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
+    <TextView
+        android:id="@+id/point_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
