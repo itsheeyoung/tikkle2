@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="heeyoung.tikkle2">
 
+
     <uses-permisson android:name="android.permission.INTERNET" />
 
     <application
@@ -26,7 +27,10 @@
         <activity android:name=".setting_activity" />
         <activity android:name=".supporter_home_activity" />
         <activity android:name=".board_writing_activity" />
-        <activity android:name=".board_reading_activity"></activity>
+        <activity android:name=".board_reading_activity" />
+        <activity
+            android:name=".supporter2_home_activity"
+            android:label="@string/title_activity_supporter2_home_activity"></activity>
     </application>
 
 </manifest>
