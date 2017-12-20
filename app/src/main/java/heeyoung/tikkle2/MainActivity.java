@@ -20,6 +20,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -27,6 +29,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import static heeyoung.tikkle2.R.id.text;
 
@@ -36,11 +41,15 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
 
     Button Select_supporter;
     Button Select_bene;
+    Button mLogout;
 
     private static final int RC_SIGN_IN=10;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mAuth;
     static String sharedText;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mDatabase;
+    String uid;
 
 
     @Override
@@ -48,14 +57,29 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+//        mLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view){
+//                FirebaseAuth.getInstance().signOut();
+//            }
+//        });
+//
+
         Intent intent = getIntent();
         sharedText = intent.getStringExtra("my_text");
-        Toast.makeText(MainActivity.this,sharedText.toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, sharedText.toString(), Toast.LENGTH_SHORT).show();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            uid = user.getUid();
+        }
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("Supporters").child(uid).child("point");
+        mDatabase.setValue(sharedText);
 
 
         mAuth = FirebaseAuth.getInstance();
-
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -93,17 +117,15 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
+                Toast.makeText(MainActivity.this, "구글rnrmdnr", Toast.LENGTH_SHORT).show();
             } else {
                 // Google Sign In failed, update UI appropriately
                 // ...
             }
         }
-
-
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -111,16 +133,44 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this,"구글 로그인이 성공하셨습니다.",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), supporter_home_activity.class);
-                            startActivityForResult(intent, REQUEST_CODE_LOGIN);
+                            if (REQUEST_CODE_SIGNIN == 101) {
+                                Toast.makeText(MainActivity.this, "구글 로그인 되었습니다", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), supporter2_home_activity.class);
+                                startActivityForResult(intent, REQUEST_CODE_SIGNIN);
+                            }
+                            else {
+                                Toast.makeText(MainActivity.this, "구글 로그인 되었습니다", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), bene_signup_activity.class);
+                                startActivityForResult(intent, REQUEST_CODE_SIGNIN);
+                            }
 
                         }
+else {
+                            Toast.makeText(MainActivity.this, "구글 로그인 실패하셨습니다", Toast.LENGTH_SHORT).show();
 
+                        }
                         // ...
                     }
                 });
     }
+
+
+
+//    private void signOut() {
+//        // Firebase sign out
+//        mAuth.signOut();
+//
+//        // Google sign out
+//        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+//                new ResultCallback<Status>() {
+//                    @Override
+//                    public void onResult(@NonNull Status status) {
+//                    }
+//                });
+ //   }
+
+
+
 
     public void button_supporter_clicked(View v) {
         Select_supporter.setBackgroundResource(R.drawable.supporterselected);
@@ -135,22 +185,24 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
         REQUEST_CODE_SIGNIN = 105;
     }
 
-
-    public void buttonsignupclicked(View v) {
-        if (REQUEST_CODE_SIGNIN == 101) {
-            Intent intent = new Intent(getApplicationContext(), signupactivity.class);
-            startActivityForResult(intent, REQUEST_CODE_SIGNIN);
-        } else {
-            Intent intent = new Intent(getApplicationContext(), bene_signup_activity.class);
-            startActivityForResult(intent, REQUEST_CODE_SIGNIN);
-        }
-    }
-
-
-    public void buttonloginclicked(View v) {
-        Intent intent = new Intent(getApplicationContext(), loginactivity.class);
-        startActivityForResult(intent, REQUEST_CODE_LOGIN);
-    }
+//
+//    public void buttonsignupclicked(View v) {
+//        if (REQUEST_CODE_SIGNIN == 101) {
+//            Toast.makeText(MainActivity.this,"구글 로그인 되었습니다",Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(getApplicationContext(), signupactivity.class);
+//            startActivityForResult(intent, REQUEST_CODE_SIGNIN);
+//        } else {
+//            Toast.makeText(MainActivity.this,"구글 로그인 되었습니다",Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(getApplicationContext(), bene_signup_activity.class);
+//            startActivityForResult(intent, REQUEST_CODE_SIGNIN);
+//        }
+//    }
+//
+//
+//    public void buttonloginclicked(View v) {
+//        Intent intent = new Intent(getApplicationContext(), loginactivity.class);
+//        startActivityForResult(intent, REQUEST_CODE_LOGIN);
+//    }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

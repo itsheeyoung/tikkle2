@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "466861688326",
+    "firebase_url": "https://tikkle2-3be33.firebaseio.com",
+    "project_id": "tikkle2-3be33",
+    "storage_bucket": "tikkle2-3be33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466861688326:android:9f13c351011337ef",
+        "android_client_info": {
+          "package_name": "heeyoung.tikkle2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466861688326-pahcjg1qedgi3hbf0f0uv80mckq4nbou.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "heeyoung.tikkle2",
+            "certificate_hash": "5b1134b87f3f7e98c8585e432e671a3abdab7882"
+          }
+        },
+        {
+          "client_id": "466861688326-rrkgihrovuadhtk7p0uhuf5r8mrqks4s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "heeyoung.tikkle2",
+            "certificate_hash": "3f99bf500d37d7c7010058cbb7f726b720fbd95a"
+          }
+        },
+        {
+          "client_id": "466861688326-l0s2h83u2co5je6lg0o9es7g1jo9o1uo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPoBkb9mVSfX9WzwtoJbosTfSyy7oR2F4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466861688326-l0s2h83u2co5je6lg0o9es7g1jo9o1uo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

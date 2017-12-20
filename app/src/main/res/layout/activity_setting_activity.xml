@@ -7,6 +7,9 @@
     android:background="@color/background"
     tools:context="heeyoung.tikkle2.setting_activity">
 
+
+
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="133dp"
@@ -37,6 +40,69 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton1"
+        style="@style/Animation.AppCompat.Dialog"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/white"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="30dp"
+        android:checked="false"
+        android:text="ToggleButton"
+        android:textOff="1%"
+        android:textOn="1%"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/white"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="0dp"
+        android:text="ToggleButton"
+        android:textOff="3%"
+        android:textOn="3%"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toRightOf="@+id/toggleButton1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toggleButton1" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton10"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="70dp"
+        android:background="@color/white"
+        android:text="ToggleButton"
+        android:textOff="10%"
+        android:textOn="10%"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleButton5"
+        app:layout_constraintLeft_toRightOf="@+id/toggleButton5"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton5"
+        android:layout_width="100dp"
+        android:background="@color/white"
+        android:layout_height="100dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="20dp"
+        android:text="ToggleButton"
+        android:textOff="5%"
+        android:textOn="5%"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton1" />
 
 
 </android.support.constraint.ConstraintLayout>

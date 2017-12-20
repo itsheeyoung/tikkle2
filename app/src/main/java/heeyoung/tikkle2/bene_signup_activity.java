@@ -1,5 +1,6 @@
 package heeyoung.tikkle2;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ public class bene_signup_activity extends AppCompatActivity {
     private EditText mSignup_size_bene;
     private EditText mSignup_intro_bene;
 
+    String uid;
+    static final int REQUEST_CODE_BENEHOME = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class bene_signup_activity extends AppCompatActivity {
             // Name, email address, and profile photo Url
             String name = user.getDisplayName();
             String email = user.getEmail();
-            String uid = user.getUid();
+            uid = user.getUid();
 
             Toast.makeText(bene_signup_activity.this,name.toString(),Toast.LENGTH_LONG).show();
 
@@ -49,13 +52,11 @@ public class bene_signup_activity extends AppCompatActivity {
 
 
         bene_register = (Button) findViewById(R.id.button_bene);
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Beneficiaries");
+        mDatabase = FirebaseDatabase.getInstance().getReference("Beneficiaries").child(uid);
+
 
         mSignup_name_bene = (EditText) findViewById(R.id.bene_name);
         mSignup_phonenum_bene = (EditText) findViewById(R.id.bene_phonenum);
-        mSignup_password_bene = (EditText) findViewById(R.id.bene_password);
-        mSignup_passcheck_bene = (EditText) findViewById(R.id.bene_passcheck);
-        mSignup_num_bene = (EditText) findViewById(R.id.bene_num);
         mSignup_address_bene = (EditText) findViewById(R.id.bene_address);
         mSignup_size_bene = (EditText) findViewById(R.id.bene_size);
         mSignup_intro_bene = (EditText) findViewById(R.id.bene_intro);
@@ -69,9 +70,6 @@ public class bene_signup_activity extends AppCompatActivity {
 
                 String name_bene = mSignup_name_bene.getText().toString().trim();
                 String phonenum_bene = mSignup_phonenum_bene.getText().toString().trim();
-                String password_bene = mSignup_password_bene.getText().toString().trim();
-                String passcheck_bene = mSignup_passcheck_bene.getText().toString().trim();
-                String num_bene = mSignup_num_bene.getText().toString().trim();
                 String address_bene = mSignup_address_bene.getText().toString().trim();
                 String size_bene = mSignup_size_bene.getText().toString().trim();
                 String intro_bene = mSignup_intro_bene.getText().toString().trim();
@@ -79,23 +77,24 @@ public class bene_signup_activity extends AppCompatActivity {
                 HashMap<String, String> dataMap = new HashMap<String, String>();
                 dataMap.put("Bene Name", name_bene);
                 dataMap.put("Bene Phone number", phonenum_bene);
-                dataMap.put("Bene Password", password_bene);
-                dataMap.put("Bene Password Check", passcheck_bene);
-                dataMap.put("Bene Number", num_bene);
                 dataMap.put("Bene Address", address_bene);
                 dataMap.put("Bene Size", size_bene);
                 dataMap.put("Bene Intro", intro_bene);
 
 
-                mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mDatabase.setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if (task.isSuccessful()) {
 
                             Toast.makeText(bene_signup_activity.this, "Stored..", Toast.LENGTH_LONG).show();
+
+                            Intent intent = new Intent(getApplicationContext(), supporter_home_activity.class);
+                            startActivityForResult(intent, REQUEST_CODE_BENEHOME);
+
                         } else {
-                            Toast.makeText(bene_signup_activity.this, "Stored..", Toast.LENGTH_LONG).show();
+                            Toast.makeText(bene_signup_activity.this, "Failed..", Toast.LENGTH_LONG).show();
                         }
 
                     }

@@ -48,9 +48,7 @@ public class supporter_home_activity extends AppCompatActivity {
 //            }
 //        });
 
-        text = (TextView)findViewById(R.id.point_view);
-        Toast.makeText(supporter_home_activity.this,sharedText.toString(),Toast.LENGTH_LONG).show();
-            text.setText(sharedText);
+
 
     }
 
