@@ -14,24 +14,15 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="113dp"
-        android:text="내 계좌번호"
-        app:layout_constraintHorizontal_bias="0.503"
+        android:layout_marginTop="441dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="현재 기부 금액 : 203,142원"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="누적금액"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabHost" />
 
     <ImageView
         android:id="@+id/imageView15"
@@ -47,73 +38,19 @@
 
     <TextView
         android:id="@+id/user_name_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="208dp"
+        android:layout_height="57dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="75dp"
-        android:text="아이디"
-        android:textSize="18sp"
+        android:layout_marginTop="52dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="해피 보육원"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TabHost
-        android:id="@+id/tabHost"
-        android:layout_width="371dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="103dp"
-        android:layout_marginLeft="-5dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TabWidget
-                android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="-42dp" />
-
-
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/기관"
-                    android:layout_width="match_parent"
-                    android:layout_height="67dp"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/계좌"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/설정"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
-    </TabHost>
 
 
 </android.support.constraint.ConstraintLayout>

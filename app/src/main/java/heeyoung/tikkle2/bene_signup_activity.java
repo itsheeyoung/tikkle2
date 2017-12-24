@@ -46,8 +46,6 @@ public class bene_signup_activity extends AppCompatActivity {
             String email = user.getEmail();
             uid = user.getUid();
 
-            Toast.makeText(bene_signup_activity.this,name.toString(),Toast.LENGTH_LONG).show();
-
         }
 
 
@@ -88,13 +86,14 @@ public class bene_signup_activity extends AppCompatActivity {
 
                         if (task.isSuccessful()) {
 
-                            Toast.makeText(bene_signup_activity.this, "Stored..", Toast.LENGTH_LONG).show();
+                            Toast.makeText(bene_signup_activity.this, "정보를 저장중입니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(bene_signup_activity.this, "저장이 완료되었습니다.", Toast.LENGTH_LONG).show();
 
                             Intent intent = new Intent(getApplicationContext(), supporter_home_activity.class);
                             startActivityForResult(intent, REQUEST_CODE_BENEHOME);
 
                         } else {
-                            Toast.makeText(bene_signup_activity.this, "Failed..", Toast.LENGTH_LONG).show();
+                            Toast.makeText(bene_signup_activity.this, "다시 시도해주세요", Toast.LENGTH_LONG).show();
                         }
 
                     }

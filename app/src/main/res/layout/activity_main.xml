@@ -13,7 +13,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="4.5"
         android:padding="70dip"
         app:srcCompat="@drawable/logo">
     </ImageView>
@@ -22,7 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.5">
+        android:layout_weight="2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,22 +60,12 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1.3"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:orientation="vertical">
-
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/button14"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
-                android:onClick="buttonloginclicked"
-                android:text="log in"
-                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/button15"
@@ -84,14 +74,33 @@
                 android:layout_weight="1"
                 android:backgroundTint="#FFFFFF"
                 android:onClick="buttonsignupclicked"
-                android:text="sign up"
-                android:textColor="#000000" />
+                android:text="처음 입장"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FFFFFF"
+                android:onClick="buttonloginclicked"
+                android:text="로그인"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6" />
 
         </LinearLayout>
+
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1.3"/>
     </LinearLayout>
 
 

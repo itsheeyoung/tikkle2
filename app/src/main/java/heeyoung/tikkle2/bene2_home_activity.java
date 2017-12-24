@@ -4,13 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
-
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class supporter2_home_activity extends AppCompatActivity {
+public class bene2_home_activity extends AppCompatActivity {
 
 
     private DatabaseReference mDatabase;
@@ -31,7 +27,7 @@ public class supporter2_home_activity extends AppCompatActivity {
     DatabaseReference myRef;
     String uid;
 
-    private static final String TAG = "supporter2_home_activity";
+    private static final String TAG = "bene2_home_activity";
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -43,10 +39,10 @@ public class supporter2_home_activity extends AppCompatActivity {
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
                 case R.id.navigation_계좌:
-                    transaction.replace(R.id.content, new supporter_account()).commit();
+                    transaction.replace(R.id.content, new bene_account()).commit();
                     return true;
                 case R.id.navigation_기관:
-//                    transaction.replace(R.id.content, new supporter_bene()).commit();
+
                     return true;
                 case R.id.navigation_설정:
                     transaction.replace(R.id.content, new supporter_setting()).commit();

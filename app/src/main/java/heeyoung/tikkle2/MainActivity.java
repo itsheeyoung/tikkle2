@@ -29,10 +29,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
+import static android.R.attr.value;
 import static heeyoung.tikkle2.R.id.text;
 
 public class MainActivity extends AppCompatActivity  implements GoogleApiClient.OnConnectionFailedListener{
@@ -49,7 +53,19 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
     static String sharedText;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase2;
     String uid;
+
+    FirebaseDatabase percentDatabase;
+//    DatabaseReference myRef;
+    DatabaseReference myRef2;
+    FirebaseDatabase database;
+    DatabaseReference percentpath;
+    static double accum;
+    boolean check = true;
+
+    private static final String TAG = "MainActivity";
+
 
 
     @Override
@@ -66,18 +82,17 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
 //        });
 //
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         sharedText = intent.getStringExtra("my_text");
-        Toast.makeText(MainActivity.this, sharedText.toString(), Toast.LENGTH_SHORT).show();
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             uid = user.getUid();
         }
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Supporters").child(uid).child("point");
-        mDatabase.setValue(sharedText);
-
+//        mDatabase = FirebaseDatabase.getInstance().getReference("Supporters").child(uid).child("won");
+//        mDatabase.setValue(sharedText);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -87,24 +102,108 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
                 .build();
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this,this)
+                .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        SignInButton Googlesign = (SignInButton) findViewById(R.id.button14);
-        Googlesign.setOnClickListener(new View.OnClickListener(){
+        Button Googlesign = (Button) findViewById(R.id.button15);
+        Googlesign.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 startActivityForResult(signInIntent, RC_SIGN_IN);
-                                          }
-                                      });
+
+                if (REQUEST_CODE_SIGNIN == 101) {
+                    Toast.makeText(MainActivity.this, "가입되었습니다", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), supporter2_home_activity.class);
+                    startActivityForResult(intent, REQUEST_CODE_SIGNIN);
+                    mDatabase = FirebaseDatabase.getInstance().getReference("Supporters").child(uid).child("percent");
+                    mDatabase.setValue(0);
+                    mDatabase = FirebaseDatabase.getInstance().getReference("Supporters").child(uid).child("point");
+                    mDatabase.setValue(0);
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "구글 로그인 되었습니다", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), bene_signup_activity.class);
+                    startActivityForResult(intent, REQUEST_CODE_SIGNIN);
+                }
+
+
+
+            }
+        });
+
+        Button Googlesign2 = (Button) findViewById(R.id.button14);
+        Googlesign2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                startActivityForResult(signInIntent, RC_SIGN_IN);
+            }
+        });
 
 
         Select_supporter = (Button) findViewById(R.id.button2);
         Select_bene = (Button) findViewById(R.id.button);
 
+
+        if (intent.hasExtra("my_text")){
+            check = true;
+//            myRef2 = FirebaseDatabase.getInstance().getReference();
+            percentDatabase = FirebaseDatabase.getInstance();
+            percentpath = percentDatabase.getReference("Supporters").child(uid);
+
+
+
+                percentpath.addValueEventListener(new ValueEventListener() {
+
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        Double percent = dataSnapshot.child("percent").getValue(Double.class);
+                        accum = dataSnapshot.child("point").getValue(Double.class);
+
+                        //데이터를 화면에 출력해 준다.
+
+                        if(check) {
+
+                        accum = percent * Double.parseDouble(sharedText.toString()) + accum;
+
+//                        myRef2 = FirebaseDatabase.getInstance().getReference().child("Supporters").child(uid).child("point");;
+                        myRef2 = database.getInstance().getReference("Supporters").child(uid).child("point");
+
+
+                            check = false;
+
+                            myRef2.setValue(accum);
+                            //Toast.makeText(MainActivity.this,intent.toString(),Toast.LENGTH_SHORT).show();
+                            Intent sendIntent = getPackageManager().getLaunchIntentForPackage("heeyoung.capston3");
+                            sendIntent.putExtra("my_text2", String.valueOf(percent * Double.parseDouble(sharedText.toString())));
+                            startActivity(sendIntent);
+
+                        }
+                        else {
+
+                        }
+
+                        Log.d(TAG, "Value is: " + value);
+
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        Log.w(TAG, "Failed to read value.", error.toException());
+                    }
+                });
+            check = true;
+        }
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -117,7 +216,6 @@ public class MainActivity extends AppCompatActivity  implements GoogleApiClient.
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-                Toast.makeText(MainActivity.this, "구글rnrmdnr", Toast.LENGTH_SHORT).show();
             } else {
                 // Google Sign In failed, update UI appropriately
                 // ...

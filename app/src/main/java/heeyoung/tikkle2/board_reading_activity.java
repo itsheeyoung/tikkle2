@@ -1,5 +1,4 @@
 package heeyoung.tikkle2;
-
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

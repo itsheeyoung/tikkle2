@@ -28,6 +28,8 @@ public class board_writing_activity extends AppCompatActivity {
 
     private Button mSubmitButton;
 
+    static final int REQUEST_CODE_READBOARD = 115;
+
     private Uri mImageUri = null ;
 
     private static final int GALLERY_REQUEST = 1;
@@ -95,9 +97,22 @@ public class board_writing_activity extends AppCompatActivity {
                     newPost.child("image").setValue(downloadUrl.toString());
                     //여기다 authentication써가지고 사람도 게시판 사람도 추가해야함
 
-                    startActivity(new Intent(board_writing_activity.this, board_reading_activity.class));
-                }
-            });
+                 //   startActivity(new Intent(board_writing_activity.this, board_reading_activity.class);
+
+
+                    mSubmitButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            Intent intent = new Intent(getApplicationContext(), board_writing_activity.class);
+                            startActivityForResult(intent, REQUEST_CODE_READBOARD);
+                        }
+                    });
+
+
+
+        }
+    });
         }
 
     }

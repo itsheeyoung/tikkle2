@@ -1,20 +1,13 @@
 package heeyoung.tikkle2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,12 +21,12 @@ import com.google.firebase.database.ValueEventListener;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link supporter_account.OnFragmentInteractionListener} interface
+ * {@link bene_account.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link supporter_account#newInstance} factory method to
+ * Use the {@link bene_account#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class supporter_account extends Fragment {
+public class bene_account extends Fragment {
 
 
     TextView accu_money;
@@ -57,7 +50,7 @@ public class supporter_account extends Fragment {
     String uid;
 
     private OnFragmentInteractionListener mListener;
-    public supporter_account() {
+    public bene_account() {
 
 
 
@@ -73,8 +66,8 @@ public class supporter_account extends Fragment {
      * @return A new instance of fragment supporter_account.
      */
     // TODO: Rename and change types and number of parameters
-    public static supporter_account newInstance(String param1, String param2) {
-        supporter_account fragment = new supporter_account();
+    public static bene_account newInstance(String param1, String param2) {
+        bene_account fragment = new bene_account();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
